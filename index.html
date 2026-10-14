@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07100b">
+  <title>مختبر الأسرار | SECRET LAB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="مختبر الأسرار">
+      <span class="brand-mark">⌘</span><span><b>SECRET LAB</b><small>مختبر الأسرار الرقمي</small></span>
+    </a>
+    <div class="status"><i></i> النظام يعمل <span class="version">v1.0</span></div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span> بيئة تجارب رقمية محلية</div>
+      <h1>مرحبًا بك في <span>مختبر الأسرار</span></h1>
+      <p>حلّل النصوص، جرّب أدوات الشفرات، واختبر مهاراتك في بيئة تفاعلية آمنة — كل شيء يعمل على جهازك.</p>
+      <div class="hero-actions">
+        <button class="btn primary" data-go="scanner">⌁ ابدأ الفحص</button>
+        <button class="btn ghost" data-go="terminal">▣ افتح المحطة</button>
+      </div>
+      <div class="hero-grid" aria-label="معلومات النظام">
+        <div class="stat"><span class="stat-icon">◉</span><div><strong>محلي</strong><small>بدون API</small></div></div>
+        <div class="stat"><span class="stat-icon">⌁</span><div><strong>4 أدوات</strong><small>تجارب تفاعلية</small></div></div>
+        <div class="stat"><span class="stat-icon">◇</span><div><strong>مجاني</strong><small>بدون اشتراك</small></div></div>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="أدوات المختبر">
+      <button class="tab active" data-tab="scanner"><span>⌕</span> ماسح النصوص</button>
+      <button class="tab" data-tab="terminal"><span>▣</span> المحطة الوهمية</button>
+      <button class="tab" data-tab="cipher"><span>⌘</span> فك الشفرات</button>
+      <button class="tab" data-tab="identity"><span>◈</span> هويتي السرية</button>
+    </nav>
+
+    <section class="panel active" id="scanner">
+      <div class="section-head"><div><div class="kicker">MODULE 01</div><h2>ماسح النصوص والأكواد</h2><p>أدخل نصًا أو مقطع كود للحصول على فحوصات أولية محلية.</p></div><span class="module-icon">⌕</span></div>
+      <label for="scanInput">النص أو الكود</label>
+      <textarea id="scanInput" spellcheck="false" placeholder="الصق الكود أو النص هنا...&#10;&#10;مثال: local part = workspace:WaitForChild('Part')"></textarea>
+      <div class="inline-controls"><span id="charCount">0 حرف</span><button class="btn primary" id="scanBtn">▶ ابدأ التحليل</button><button class="btn ghost small" id="clearScan">مسح</button></div>
+      <div id="scanResults" class="results empty"><span class="result-symbol">⌁</span><b>بانتظار الإدخال</b><p>الفحص لا يرسل بياناتك إلى أي خادم.</p></div>
+      <p class="hint">ملاحظة: هذه أداة تعليمية لفحوصات بسيطة، وليست مدققًا كاملًا أو ضمانًا لأمان الكود.</p>
+    </section>
+
+    <section class="panel" id="terminal">
+      <div class="section-head"><div><div class="kicker">MODULE 02</div><h2>المحطة الوهمية</h2><p>أوامر تجريبية داخل محاكاة — لا يتم الوصول إلى ملفات جهازك.</p></div><span class="module-icon">▣</span></div>
+      <div class="terminal-window">
+        <div class="terminal-bar"><div class="dots"><i></i><i></i><i></i></div><span>guest@secret-lab: ~</span><button id="clearTerminal" class="icon-btn" title="مسح الشاشة">⌫</button></div>
+        <div class="terminal-output" id="terminalOutput" aria-live="polite"><p class="term-muted">SECRET LAB SIMULATOR [v1.0]</p><p>هذه محاكاة تفاعلية آمنة. اختر أمرًا للبدء.</p><p class="term-prompt">guest@lab:~$ <span class="cursor"></span></p></div>
+      </div>
+      <div class="command-grid">
+        <button class="command" data-command="scan"><b>01 / فحص النظام</b><small>تشغيل فحص تجريبي</small></button>
+        <button class="command" data-command="files"><b>02 / عرض الملفات</b><small>ملفات وهمية داخل المحاكاة</small></button>
+        <button class="command" data-command="access"><b>03 / اختبار الوصول</b><small>عرض نتيجة تجريبية</small></button>
+        <button class="command" data-command="help"><b>04 / المساعدة</b><small>قائمة الأوامر المتاحة</small></button>
+      </div>
+    </section>
+
+    <section class="panel" id="cipher">
+      <div class="section-head"><div><div class="kicker">MODULE 03</div><h2>مختبر الشفرات</h2><p>شفّر النص أو فكّه باستخدام شفرة قيصر البسيطة.</p></div><span class="module-icon">⌘</span></div>
+      <label for="cipherInput">النص (يدعم الحروف الإنجليزية)</label>
+      <textarea id="cipherInput" placeholder="اكتب رسالة تجريبية مثل: HELLO WORLD"></textarea>
+      <div class="cipher-controls"><label for="shift">مقدار الإزاحة <strong id="shiftValue">3</strong></label><input id="shift" type="range" min="1" max="25" value="3"></div>
+      <div class="two-buttons"><button class="btn primary" id="encodeBtn">⟶ تشفير</button><button class="btn ghost" id="decodeBtn">⟵ فك التشفير</button></div>
+      <label for="cipherOutput">النتيجة</label>
+      <textarea id="cipherOutput" readonly placeholder="ستظهر النتيجة هنا..."></textarea>
+      <div class="inline-controls"><span class="hint">تبقى الرموز والأرقام كما هي.</span><button class="btn ghost small" id="copyCipher">نسخ النتيجة</button></div>
+      <div id="copyStatus" class="mini-status" aria-live="polite"></div>
+    </section>
+
+    <section class="panel" id="identity">
+      <div class="section-head"><div><div class="kicker">MODULE 04</div><h2>هويتي السرية</h2><p>صمّم بطاقة مستعارك واحفظها كصورة من جهازك.</p></div><span class="module-icon">◈</span></div>
+      <div class="identity-layout">
+        <div class="identity-form">
+          <label for="alias">الاسم المستعار</label><input id="alias" maxlength="22" value="GHOST_404" placeholder="اكتب اسمك المستعار">
+          <label for="rank">الرتبة</label><select id="rank"><option>متدرّب</option><option>مستكشف</option><option>محلل شفرات</option><option>خبير النظام</option><option>شبح رقمي</option></select>
+          <label for="bioText">نبذة قصيرة</label><textarea id="bioText" maxlength="90" placeholder="اكتب جملة تعبّر عنك">أتعلم، أجرّب، وأكتشف.</textarea>
+          <button class="btn primary full" id="saveCard">⬇ حفظ البطاقة كصورة</button>
+          <p class="hint">يتم إنشاء الصورة داخل المتصفح ولا تُرفع إلى الإنترنت.</p>
+        </div>
+        <div class="id-card" id="idCard">
+          <div class="card-top"><span>SECRET LAB</span><span class="card-status"><i></i> VERIFIED SIM</span></div>
+          <div class="avatar">◈</div>
+          <div class="card-label">DIGITAL IDENTITY</div>
+          <h3 id="cardAlias">GHOST_404</h3>
+          <div class="rank-chip" id="cardRank">متدرّب</div>
+          <p id="cardBio">أتعلم، أجرّب، وأكتشف.</p>
+          <div class="card-bottom"><span>ID / SL-2048</span><span>◢◤◢◤◢</span></div>
+        </div>
+      </div>
+    </section>
+
+    <footer><span>SECRET LAB <b>•</b> صُنع للتعلّم والتجربة</span><span>لا اختراق حقيقي · لا بيانات تُرسل</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
